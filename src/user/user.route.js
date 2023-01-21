@@ -39,12 +39,14 @@ app.post("/login",async(req,res)=>{
 
 
 app.get("/getProfile",async(req,res)=>{
+         const {email}=req.body;
+     
     try{
       const user=await UserModel.findOne({email})
       if(user){
-        return res.send(user.name,user.email)
+        return res.send(user)
       }else{
-        return res.status(404).send("Cannot find user")
+        return res.send("Cannot find user")
       }
     }catch(e){
       res.send(e.message)
