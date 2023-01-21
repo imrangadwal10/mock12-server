@@ -38,7 +38,7 @@ app.post("/login",async(req,res)=>{
 })
 
 
-app.get("/getProfile",async(req,res)=>{
+app.post("/getProfile",async(req,res)=>{
          const {email}=req.body;
      
     try{
